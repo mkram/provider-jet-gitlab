@@ -1,11 +1,11 @@
-apiVersion: template.jet.crossplane.io/v1alpha1
+apiVersion: gitlab.jet.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
-  name: default
+  name: gitlab-provider
 spec:
   credentials:
     source: Secret
     secretRef:
-      name: example-creds
+      name: gitlab-credentials
       namespace: crossplane-system
       key: credentials

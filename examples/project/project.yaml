@@ -1,0 +1,17 @@
+apiVersion: project.gitlab.jet.crossplane.io/v1alpha1
+kind: Project
+metadata:
+  name: example-project
+spec:
+  forProvider:
+    namespaceId: 100
+    description: "example project description"
+    visibilityLevel: "internal"
+    useCustomTemplate: true
+    templateProjectId: 007
+  providerConfigRef:
+    name: gitlab-provider
+  # a reference to a Kubernetes secret to which the controller will write the runnersToken
+  writeConnectionSecretToRef:
+    name: gitlab-project-example-project
+    namespace: crossplane-system
